@@ -7,7 +7,7 @@ var express = require("express"),
 
 app.get("/", function (req, res) {
 	//console.log('username: ', req.query.name);
-	res.send("index.html");
+	res.redirect("index.html");
 });
 
 app.use(methodOverride());
