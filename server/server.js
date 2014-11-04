@@ -7,7 +7,7 @@ var express = require("express"),
 
 app.get("/", function (req, res) {
 	//console.log('username: ', req.query.name);
-	res.render("../public/index.html");
+	res.send("index.html");
 });
 
 app.use(methodOverride());
