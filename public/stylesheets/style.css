@@ -5,4 +5,22 @@ body {
 
 a {
   color: #00B7FF;
+  cursor: pointer;
+}
+
+.message {
+	color: 'red';
+	text-align: 'center';
+}
+.modal-dialog {
+    width: 300px;
+}
+.modal-footer {
+    height: 70px;
+    margin: 0;
+}
+.input-group-addon {
+    color: #fff;
+    background: #3276B1;
+    top: 0;
 }
