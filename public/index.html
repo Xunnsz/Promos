@@ -5,11 +5,13 @@
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular-route/angular-route.js"></script>
 	<script src="javascripts/controllers.js"></script>
+	<script src="javascripts/routes.js"></script>
 
 	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
 	<link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" ng-controller="mainController">
-		<div ng-include="templateUrl"></div>
+	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" >
+		<div ng-view>
+		</div>
 	</body>
 </html>

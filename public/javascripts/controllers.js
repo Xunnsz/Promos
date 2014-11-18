@@ -1,5 +1,72 @@
-var promos = angular.module('promos', []);
+var promos = angular.module('promos', [
+	'ngRoute',
+	'promosControllers']);
 
+var promosControllers = angular.module('promosControllers', []);
+
+promosControllers.controller('LoginCtrl', ['$scope', '$http', '$location',
+	function ($scope, $http, $location) {
+	$scope.formData = {};
+	$scope.message = '';
+	$scope.title = 'Promos';
+    // when submitting the add form, send the text to the node API
+    $scope.login = function() {
+        $http.post('/Login', $scope.formData)
+            .success(function(data) {
+                if(data.login){
+                	//Logged in!
+                	$location.path('/Dashboard');
+                }else{
+                	$scope.message = 'Wrong pass or username';
+                }
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+    };
+}]);
+
+promosControllers.controller('DashboardCtrl', ['$scope', '$http', '$location',
+  function($scope, $http, $location) {
+  		if(isAuthorized($http, $location)){
+  			console.log('isAuthorized');
+  		}
+  }]);
+
+promosControllers.controller('StudentsCtrl', ['$scope', '$http', '$location',
+  function($scope, $http, $location) {
+  		if(isAuthorized($http, $location)){
+  			console.log('isAuthorized');
+  		}
+  }]);
+
+promosControllers.controller('LogoutCtrl', ['$scope', '$http', '$location',
+  function($scope, $http, $location) {
+		$http.get('/Logout')
+			.success(function() {
+            	$location.path('/Login');
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+  }]);
+
+function isAuthorized($http, $location){
+    $http.get('/check')
+    .success(function(data) {
+    	if(data.login == true)
+    		return true;
+    	else{
+    		console.log('Not authorized')
+    		$location.path('/Login');
+    	}
+    })
+    .error(function(data) {
+        console.log('Error: ' + data);
+        return false;
+    });
+}
+/*
 promos.controller('mainController', function($scope, $http) {
 	$scope.templateUrl = createUrl('login');
 	$scope.formData = {};
@@ -7,7 +74,7 @@ promos.controller('mainController', function($scope, $http) {
 	$scope.title = 'Promos';
     // when submitting the add form, send the text to the node API
     $scope.login = function() {
-        $http.post('/login', $scope.formData)
+        $http.post('/Login', $scope.formData)
             .success(function(data) {
                 //$scope.formData = {}; // clear the form so our user is ready to enter another
                 if(data.message){
@@ -21,6 +88,27 @@ promos.controller('mainController', function($scope, $http) {
                 console.log('Error: ' + data);
             });
     };
+});
+
+promos.controller('StudentsCtrl', function($scope, $http) {
+	console.log('dsfsdfsdfsdf');
+	/*$scope.templateUrl = createUrl('students');
+	// when submitting the add form, send the text to the node API
+	$scope.login = function() {
+	    $http.post('/Login', $scope.formData)
+	        .success(function(data) {
+	            //$scope.formData = {}; // clear the form so our user is ready to enter another
+	            if(data.message){
+	            	//$scope.message = 'Logged in..';
+	            	$scope.templateUrl = createUrl('dashboard');
+	            }else{
+	            	$scope.message = 'Wrong pass or username';
+	            }
+	        })
+	        .error(function(data) {
+	            console.log('Error: ' + data);
+	        });
+	};
 
     // when landing on the page, get all todos and show them
     /*
@@ -57,9 +145,6 @@ promos.controller('mainController', function($scope, $http) {
             .error(function(data) {
                 console.log('Error: ' + data);
             });
-    };*/
+    };
 });
-
-function createUrl(name){
-	return 'templates/' + name + '.html';
-}
+*/
