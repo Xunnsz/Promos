@@ -4,6 +4,11 @@ var promos = angular.module('promos', [
 
 var promosControllers = angular.module('promosControllers', []);
 
+promosControllers.controller('mainController', ['$scope', '$http', '$location',
+  function($scope, $http, $location) {
+  	$scope.title = "Promos";
+  }]);
+
 promosControllers.controller('LoginCtrl', ['$scope', '$http', '$location',
 	function ($scope, $http, $location) {
 	$scope.formData = {};
@@ -55,7 +60,7 @@ function isAuthorized($http, $location){
     $http.get('/check')
     .success(function(data) {
     	if(data.login == true)
-    		return true;
+    		return true;	
     	else{
     		console.log('Not authorized')
     		$location.path('/Login');
