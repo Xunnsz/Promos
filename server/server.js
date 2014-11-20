@@ -59,6 +59,13 @@ app.get('/check', isAuthenticated, function(req, res){
     else
       res.json({login: true});
 });
+
+app.get('/getUser', isAuthenticated, function(req, res){
+    if(req.session.passport.user == undefined)
+      res.json({});
+    else
+      res.json({username: req.session.passport.user});
+});
 /*app.post('/login', function(req,res){
 
   //POST parameters

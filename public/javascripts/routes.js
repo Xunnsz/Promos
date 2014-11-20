@@ -13,6 +13,10 @@ promos.config(['$routeProvider',
         templateUrl: 'templates/Students.html',
         controller: 'StudentsCtrl'
       }).
+      when('/Agenda', {
+        templateUrl: 'templates/Agenda.html',
+        controller: 'AgendaCtrl'
+      }).
       when('/Logout', {
         templateUrl: 'templates/Login.html',
         controller: 'LogoutCtrl'
