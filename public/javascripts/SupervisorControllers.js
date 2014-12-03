@@ -1,10 +1,33 @@
-promosControllers.controller('SupervisorDashboardCtrl', ['$scope', '$http', '$location',
-	function($scope, $http, $location) {
-			if(isAuthorized($http, $location)){
-				console.log('isAuthorized');
-			}
+promosControllers.controller('SupervisorDashboardCtrl', ['$scope', '$http', '$location', '$q',
+	function($scope, $http, $location, $q) {
+			console.log('defer!!');
+			test($http, $location, $q).then(function(isAuthorized){
+				console.log('callback', isAuthorized);
+				if(isAuthorized){
+					console.log('isAuthorized');
+				}	
+			});
 	}]);
 
+/*
+ app.controller("test",function($scope,$q){
+
+    $scope.$test = function(){
+      var deferred = $q.defer();
+      deferred.resolve("Hi");
+      return deferred.promise;
+    };
+
+    $scope.test=function(){
+      $scope.$test()
+      .then(function(data){
+        console.log(data);
+      });
+    }
+
+
+  });
+ */
 promosControllers.controller('SupervisorStudentsCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {
 			if(isAuthorized($http, $location)){

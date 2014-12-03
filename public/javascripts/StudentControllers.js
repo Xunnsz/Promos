@@ -20,6 +20,21 @@ promosControllers.controller('StudentStudentsCtrl', ['$scope', '$http', '$locati
 			}
 	}]);
 
+promosControllers.controller('StudentMessagesCtrl', ['$scope', '$http', '$location',
+	function($scope, $http, $location) {
+
+
+
+
+	}]);
+
+promosControllers.controller('StudentDissertationsCtrl', ['$scope', '$http', '$location',
+	function($scope, $http, $location) {
+
+
+
+	}]);
+
 promosControllers.controller('StudentAgendaCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {
 				console.log('show agenda!');

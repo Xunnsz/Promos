@@ -59,8 +59,10 @@ promosControllers.controller('LogoutCtrl', ['$scope', '$http', '$location',
 function isAuthorized($http, $location){
 		$http.get('/check')
 		.success(function(data) {
-			if(data.login == true)
+			if(data.login == true){
+				console.log('is authorized');
 				return true;	
+			}
 			else{
 				console.log('Not authorized');
 				$location.path('/Login');
@@ -70,6 +72,14 @@ function isAuthorized($http, $location){
 				console.log('Error: ' + data);
 				return false;
 		});
+
+}
+
+function test($http, $location, $q){
+	console.log('test!!');
+	var deferred = $q.defer();
+	deferred.resolve(isAuthorized($http, $location));
+	return deferred.promise;
 }
 
 promosControllers.directive('ngEnter', function () {

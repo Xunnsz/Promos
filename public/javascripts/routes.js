@@ -17,9 +17,17 @@ promos.config(['$routeProvider',
 				templateUrl: 'templates/Student/Agenda.html',
 				controller: 'StudentAgendaCtrl'
 			}).
+			when('/Student/Messages', {
+				templateUrl: 'templates/Student/Messages.html',
+				controller: 'StudentMessagesCtrl'
+			}).
+			when('/Student/Dissertations', {
+				templateUrl: 'templates/Student/Dissertations.html',
+				controller: 'StudentDissertationsCtrl'
+			}).
 			when('/Supervisor/Dashboard', {
 				templateUrl: 'templates/Supervisor/Dashboard.html',
-				controller: 'StudentDashboardCtrl'
+				controller: 'SupervisorDashboardCtrl'
 			}).
 			when('/Supervisor/Students', {
 				templateUrl: 'templates/Supervisor/Students.html',
