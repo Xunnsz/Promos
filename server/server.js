@@ -7,7 +7,11 @@ var express = require("express"),
     methodOverride = require('method-override'),
     port = 3001;
 
-app.use(expressSession({secret: 'mySecretKey'}));
+app.use(expressSession({
+  secret: 'mySecretKey',
+  resave: true,
+  saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride());
@@ -55,17 +59,24 @@ var isAuthenticated = function (req, res, next) {
 
 app.get('/check', isAuthenticated, function(req, res){
     if(req.session.passport.user == undefined)
+    {
+      console.log('user: ' + req.session.passport.user.username  + ' is NOT authorized as ' + req.session.passport.user.type);
       res.json({login: false});
+    }
     else
-      res.json({login: true});
+    {
+      console.log('user: ' + req.session.passport.user.username  + ' is authorized as ' + req.session.passport.user.type);
+      res.json({login: true, user: req.session.passport.user});
+    }
 });
 
 app.get('/getUser', isAuthenticated, function(req, res){
     if(req.session.passport.user == undefined)
       res.json({});
     else
-      res.json({username: req.session.passport.user});
+      res.json({username: req.session.passport.user.username, type: req.session.passport.user.type});
 });
+
 /*app.post('/login', function(req,res){
 
   //POST parameters

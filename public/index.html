@@ -4,71 +4,26 @@
 	<title>{{ title }}</title>
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular-route/angular-route.js"></script>
-	<!-- hoi -->
+
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
-	<script src="javascripts/controllers.js"></script>
-	<script src="javascripts/routes.js"></script>
+	<script src="javascripts/MainControllers.js"></script>
+	<script src="javascripts/StudentControllers.js"></script>
+	<script src="javascripts/SupervisorControllers.js"></script>
+	<script src="javascripts/Routes.js"></script>
 
 	<link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" ng-controller="mainController">
-		<!-- Navigation -->
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="container">
-				<a class="navbar-brand" href="#"><img style="max-height:40px;margin-top:-10px" src="./images/logo2.png" alt=""></a>
-				<div class="navbar-header page-scroll">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<div class="navbar-brand page-scroll" style="cursor:default;margin-left:-25px">{{ title }}</div>
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse navbar-ex1-collapse">
-					<ul class="nav navbar-nav">
-						<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-						<li class="hidden" >
-							<a href="#page-top"></a>
-						</li>
-						<li>
-							<a href="#Dashboard">Dashboard</a>
-						</li>
-						<li>
-							<a href="#Students">Students</a>
-						</li>
-						<li>
-							<a href="#Agenda">Agenda</a>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav pull-right">
-						<li class="dropdown">
-						  <a class="dropdown-toggle" data-toggle="dropdown">Welcome, {{ username }} <span class="caret"></span></a>				
-						  <ul class="dropdown-menu" role="menu">
-							<li><a href="#">Messages</a></li>
-							<li><a href="#">Notes</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Change preferences</a></li>
-							<li><a href="#Logout">Log out</a></li>
-						  </ul>                
-						</li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container -->
-		</nav>
+	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 		
 		<div ng-view></div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
 	</body>
 </html>
