@@ -4200,15 +4200,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+
 }
 .nav > li {
   position: relative;
   display: block;
+
 }
 .nav > li > a {
   position: relative;
   display: block;
   padding: 10px 15px;
+
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -4230,6 +4233,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a:focus {
   background-color: #eee;
   border-color: #428bca;
+
 }
 .nav .nav-divider {
   height: 1px;
@@ -4239,6 +4243,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav > li > a > img {
   max-width: none;
+
 }
 .nav-tabs {
   border-bottom: 1px solid #ddd;
@@ -6824,4 +6829,7 @@ button.close {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 
+#logo_login {
+    padding:50px;
+}
   
