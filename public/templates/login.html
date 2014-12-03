@@ -38,7 +38,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<img class="media-object center-block" style="max-height:225px;text-align:'center';margin-bottom:10px" src="./images/logo.png" />
-						<form role="form">
+						<form role="form" ng-enter="login()">
 					<div class="form-group">
 						<div class="input-group">
 							<input type="text" class="form-control" id="uLogin" ng-model="formData.username" name="username" placeholder="Username">
@@ -48,7 +48,7 @@
 
 					<div class="form-group">
 						<div class="input-group">
-							<input type="password" class="form-control" id="uPassword" ng-model="formData.password" ng-enter="login()" name="password" placeholder="Password">
+							<input type="password" class="form-control" id="uPassword" ng-model="formData.password" name="password" placeholder="Password">
 							<label for="uPassword" class="input-group-addon glyphicon glyphicon-lock" style="top:0"></label>
 						</div> <!-- /.input-group -->
 					</div> <!-- /.form-group -->
