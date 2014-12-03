@@ -1,9 +1,17 @@
 promosControllers.controller('StudentDashboardCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {
 			if(isAuthorized($http, $location)){
-				console.log('isAuthorized');
+			    console.log('isAuthorized');
+			    
 			}
+			$(document).ready(function () {
+			    $('html, body').animate({ scrollTop: 390 }, 1000);
+			});
+
+
 	}]);
+
+
 
 promosControllers.controller('StudentStudentsCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {
