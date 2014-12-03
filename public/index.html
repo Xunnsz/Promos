@@ -2,6 +2,7 @@
 <html ng-app="promos">
   <head>
 	<title>{{ title }}</title>
+	<!-- Angular framework -->
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular-route/angular-route.js"></script>
 
@@ -11,17 +12,24 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
+	<!-- Javascripts -->
 	<script src="javascripts/MainControllers.js"></script>
 	<script src="javascripts/StudentControllers.js"></script>
 	<script src="javascripts/SupervisorControllers.js"></script>
 	<script src="javascripts/Routes.js"></script>
 
+	<!-- Stylesheets -->
 	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/styleStudent.css' />
+	<link rel='stylesheet' href='/stylesheets/styleSupervisor.css' />
+
   </head>
 	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 		
+		<!-- including templates -->
 		<div ng-view></div>
 
+		<!-- JQuery & Bootstraps -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
