@@ -18,6 +18,10 @@
     margin-top:20px;
 }
 
+.container .panel-primary {
+    margin-left: 25px;
+}
+
 .timeline li:first-child .timeline-panel {
     pointer-events: none;
     opacity: 0.8;
@@ -322,37 +326,35 @@ div.input-group-multiple-select {
     padding: 0;
 }
 
-.row {
+.timeline-body .row {
    
-    padding: 0 10px;
+    padding: 0px 12px;
 }
 
 .clickable {
     cursor: pointer;
 }
 
-.panel-heading div {
+.timeline-panel  .panel-heading div {
     margin-top: -18px;
     font-size: 15px;
 }
 
-.panel-heading div span {
+.timeline-panel  .panel-heading div span {
     margin-left: 5px;
 }
 
-.panel-body {
-    display: none;
-}
 
-.panel-title {
+
+.timeline-panel  .panel-title {
     color: #FFF;
 }
 
-.panel-success > .panel-heading {
+.timeline-panel  .panel-success > .panel-heading {
     background-color: #5fab5f;
     background-image: none;
 }
 
-.col-md-6 {
+.timeline-panel .col-md-6 {
     width: 100%;
 }
