@@ -248,29 +248,18 @@ promosControllers.controller('StudentDashboardCtrl', ['$scope', '$http', '$locat
 
 promosControllers.controller('StudentStudentsCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {
-			if(isAuthorized($http, $location)){
-				console.log('isAuthorized');
-			}
 	}]);
 
 promosControllers.controller('StudentMessagesCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {
-
-
-
-
 	}]);
 
 promosControllers.controller('StudentDissertationsCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {
-
-
-
 	}]);
 
 promosControllers.controller('StudentAgendaCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {
-				console.log('show agenda!');
 				$.getScript('http://arshaw.com/js/fullcalendar-1.6.4/fullcalendar/fullcalendar.min.js',function(){
 					var date = new Date();
 					var d = date.getDate();

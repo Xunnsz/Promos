@@ -1,38 +1,51 @@
-promosControllers.controller('SupervisorDashboardCtrl', ['$scope', '$http', '$location', '$q',
-	function($scope, $http, $location, $q) {
-			console.log('defer!!');
-			test($http, $location, $q).then(function(isAuthorized){
-				console.log('callback', isAuthorized);
-				if(isAuthorized){
-					console.log('isAuthorized');
-				}	
+promosControllers.controller('SupervisorDashboardCtrl', ['$scope', '$http', '$location',
+	function($scope, $http, $location) {
+		$http.get('/api/students')
+			.success(function(data) {
+					$scope.students = data;
+			})
+			.error(function(data) {
+					console.log('Error: ' + data);
+					return false;
 			});
-	}]);
 
-/*
- app.controller("test",function($scope,$q){
+		$scope.showTimeline = function(index){
+			$location.path('/Supervisor/Timeline/'+index+'/false');
+		}
 
-    $scope.$test = function(){
-      var deferred = $q.defer();
-      deferred.resolve("Hi");
-      return deferred.promise;
-    };
+		$scope.scrollTimeline = function(index){
+			$location.path('/Supervisor/Timeline/'+index+'/true');
+		}
+}]);
 
-    $scope.test=function(){
-      $scope.$test()
-      .then(function(data){
-        console.log(data);
-      });
-    }
+promosControllers.controller('SupervisorTimelineCtrl', ['$scope',  '$routeParams', '$http', '$location',
+	function($scope, $routeParams, $http, $location) {
+		$http.get('/api/getStudent?studentID='+ $routeParams.studentID)
+			.success(function(data) {
+					$scope.studentname = data.surname + ' ' +data.lastname;
+					if($routeParams.scroll == 'true'){
+						$(document).ready(function () {
+							$('html, body').animate({ scrollTop: $('#'+data.progress+'').offset().top - 90}, 1000);
+						});
+					}
+			})
+			.error(function(data) {
+					console.log('Error: ' + data);
+					return false;
+		});
+}]);
 
-
-  });
- */
 promosControllers.controller('SupervisorStudentsCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {
-			if(isAuthorized($http, $location)){
-				console.log('isAuthorized');
-			}
+	}]);
+
+promosControllers.controller('SupervisorMessagesCtrl', ['$scope', '$http', '$location',
+	function($scope, $http, $location) {
+	}]);
+
+promosControllers.controller('SupervisorDissertationsCtrl', ['$scope', '$http', '$location',
+	function($scope, $http, $location) {
+			$('.textarea').wysihtml5();
 	}]);
 
 promosControllers.controller('SupervisorAgendaCtrl', ['$scope', '$http', '$location',
@@ -53,17 +66,17 @@ promosControllers.controller('SupervisorAgendaCtrl', ['$scope', '$http', '$locat
 						editable: true,
 						events: [
 							{
-								title: 'All Day Event',
+								title: 'Sunny Khoenkhoen\'s Defense',
 								start: new Date(y, m, 1)
 							},
 							{
-								title: 'Long Event',
+								title: 'Tom Rutten\'s Dissertation deadline',
 								start: new Date(y, m, d-5),
 								end: new Date(y, m, d-2)
 							},
 							{
 								id: 999,
-								title: 'Repeating Event',
+								title: 'Yunpeng Zhang\'s Defense',
 								start: new Date(y, m, d-3, 16, 0),
 								allDay: false
 							},

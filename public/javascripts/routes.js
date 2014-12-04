@@ -37,6 +37,18 @@ promos.config(['$routeProvider',
 				templateUrl: 'templates/Supervisor/Agenda.html',
 				controller: 'SupervisorAgendaCtrl'
 			}).
+			when('/Supervisor/Timeline/:studentID/:scroll', {
+				templateUrl: 'templates/Supervisor/Timeline.html',
+				controller: 'SupervisorTimelineCtrl'
+			}).
+			when('/Supervisor/Messages', {
+				templateUrl: 'templates/Supervisor/Messages.html',
+				controller: 'SupervisorMessagesCtrl'
+			}).
+			when('/Supervisor/Dissertations', {
+				templateUrl: 'templates/Supervisor/Dissertations.html',
+				controller: 'SupervisorDissertationsCtrl'
+			}).
 			when('/Logout', {
 				templateUrl: 'templates/Login.html',
 				controller: 'LogoutCtrl'

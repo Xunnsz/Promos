@@ -5,6 +5,7 @@ var express = require("express"),
     bodyParser = require('body-parser'),
     errorHandler = require('errorhandler'),
     methodOverride = require('method-override'),
+    students = require('./api/students'),
     port = 3001;
 
 app.use(expressSession({
@@ -77,6 +78,15 @@ app.get('/getUser', isAuthenticated, function(req, res){
       res.json({username: req.session.passport.user.username, type: req.session.passport.user.type});
 });
 
+app.get('/api/students', isAuthenticated, function(req, res){
+  //cars.list
+  students.list(req, res);
+}); 
+
+app.get('/api/getStudent', function(req,res){
+  console.log('get student!!');
+  students.get(req, res);
+});
 /*app.post('/login', function(req,res){
 
   //POST parameters

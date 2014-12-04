@@ -21,27 +21,30 @@ promosControllers.controller('MainController', ['$scope', '$http', '$location',
 promosControllers.controller('LoginCtrl', ['$scope', '$http', '$location',
 	function ($scope, $http, $location) {
 	$scope.formData = {};
-	$scope.message = '';
+	$scope.$parent.message = '';
 		// when submitting the add form, send the text to the node API
 		$scope.login = function() {
-				$http.post('/Login', $scope.formData)
-						.success(function(data) {
-								if(data.login){
-									//Logged in!
-									$scope.$parent.title = pageTitle;
-									console.log('data: ', data);
-									$scope.$parent.username = data.user.username + " (" + data.user.type + ")";
-									if(data.user.type == 'Student')
-										$location.path('/Student/Dashboard');
-									if(data.user.type == 'Supervisor')
-										$location.path('/Supervisor/Dashboard');
-								}else{
-									$scope.message = 'Wrong pass or username';
-								}
-						})
-						.error(function(data) {
-								console.log('Error: ' + data);
-						});
+				if(!$scope.formData.username || !$scope.formData.password){
+					$scope.$parent.message = 'Wrong password or username, please try again.';
+				}else{
+					$http.post('/Login', $scope.formData)
+					.success(function(data) {
+							if(data.login){
+								//Logged in!
+								$scope.$parent.title = pageTitle;
+								$scope.$parent.username = data.user.username + " (" + data.user.type + ")";
+								if(data.user.type == 'Student')
+									$location.path('/Student/Dashboard');
+								if(data.user.type == 'Supervisor')
+									$location.path('/Supervisor/Dashboard');
+							}else{
+								$scope.$parent.message = 'Wrong password or username';
+							}
+					})
+					.error(function(data) {
+							console.log('Error: ' + data);
+					});
+				}
 		};
 }]);
 
@@ -73,13 +76,6 @@ function isAuthorized($http, $location){
 				return false;
 		});
 
-}
-
-function test($http, $location, $q){
-	console.log('test!!');
-	var deferred = $q.defer();
-	deferred.resolve(isAuthorized($http, $location));
-	return deferred.promise;
 }
 
 promosControllers.directive('ngEnter', function () {
