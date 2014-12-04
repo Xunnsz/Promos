@@ -6830,6 +6830,10 @@ button.close {
 /*# sourceMappingURL=bootstrap.css.map */
 
 #logo_login {
-    padding: 50px 50px 50px 80px
+    
+}
+
+#dissertation_page .row {
+    margin:0;
 }
   
