@@ -16,6 +16,10 @@ promosControllers.controller('SupervisorDashboardCtrl', ['$scope', '$http', '$lo
 		$scope.scrollTimeline = function(index){
 			$location.path('/Supervisor/Timeline/'+index+'/true');
 		}
+
+		$scope.showStudent = function(index){
+			$location.path('/Supervisor/Student/'+index);
+		}
 }]);
 
 promosControllers.controller('SupervisorTimelineCtrl', ['$scope',  '$routeParams', '$http', '$location',
@@ -35,17 +39,37 @@ promosControllers.controller('SupervisorTimelineCtrl', ['$scope',  '$routeParams
 		});
 }]);
 
-promosControllers.controller('SupervisorStudentsCtrl', ['$scope', '$http', '$location',
-	function($scope, $http, $location) {
+promosControllers.controller('SupervisorStudentsCtrl', ['$scope', '$routeParams', '$http', '$location',
+	function($scope, $routeParams, $http, $location) {
+		$http.get('/api/getStudent?studentID='+ $routeParams.studentID)
+			.success(function(data) {
+					$scope.surname = data.surname
+					$scope.lastname = data.lastname
+					$scope.gender = data.gender
+					$scope.birth = data.birth
+					$scope.birthcity = data.birthcity
+					$scope.country = data.country
+					$scope.nationality = data.nationality
+					$scope.address = data.address
+					$scope.addressnumber = data.addressnumber
+					$scope.zipcode = data.zipcode
+					$scope.city = data.city
+					$scope.email = data.email
+					$scope.phonenumber = data.phonenumber
+			})
+			.error(function(data) {
+					console.log('Error: ' + data);
+					return false;
+		});
 	}]);
 
 promosControllers.controller('SupervisorMessagesCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {
 	}]);
 
-promosControllers.controller('SupervisorDissertationsCtrl', ['$scope', '$http', '$location',
+promosControllers.controller('SupervisorAppendixCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {
-			$('.textarea').wysihtml5();
+		$('.textarea').wysihtml5();
 	}]);
 
 promosControllers.controller('SupervisorAgendaCtrl', ['$scope', '$http', '$location',

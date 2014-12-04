@@ -1,14 +1,98 @@
 <!-- IMPORTANT: Navigation -->
 <div ng-include src="'templates/Supervisor/Navigation.html'"></div>
 
-    <!-- Intro Section -->
+  <!-- Intro Section -->
     <section id="intro" class="intro-section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Students page</h1>
-                        Here comes the list of all students..
+            
+                <div class="page-header">
+                    <h1 id="timeline">Personal information</h1>
                 </div>
+           
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{surname}} {{lastname}}</h3>
             </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" style="max-height:225px" src="images/unknown.jpg" class="img-circle"> </div>
+                
+                <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>DEPARTMENT:</dt>
+                    <dd>Administrator</dd>
+                    <dt>HIRE DATE</dt>
+                    <dd>11/12/2013</dd>
+                    <dt>DATE OF BIRTH</dt>
+                       <dd>11/12/2013</dd>
+                    <dt>GENDER</dt>
+                    <dd>Male</dd>
+                  </dl>
+                </div>-->
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Gender</td>
+                        <td>{{gender}}</td>
+                      </tr>
+                      <tr>
+                        <td>Date of birth</td>
+                        <td>{{birth}}</td>
+                      </tr>
+                      <tr>
+                        <td>Place of birth</td>
+                        <td>{{birthcity}}</td>
+                      </tr>
+                   
+                         <tr>
+                             <tr>
+                        <td>Country of birth</td>
+                        <td>{{country}}</td>
+                      </tr>
+                        <tr>
+                        <td>Nationality</td>
+                        <td>{{nationality}}</td>
+                      </tr>
+                             <tr>
+                        <td>Home address</td>
+                        <td>{{address}} {{addressnumber}}</td>
+                      </tr>
+                             <tr>
+                        <td>Postal code</td>
+                        <td>{{zipcode}}</td>
+                      </tr>
+                              <tr>
+                        <td>City</td>
+                        <td>{{city}}</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:{{email}}">{{email}}</a></td>
+                      </tr>
+                        <td>Telephone</td>
+                        <td><a href="tel:{{phonenumber}}">{{phonenumber}}</a>
+                        </td>
+                           
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                  
+                  <a href="#" class="btn btn-primary">My LinkedIn page</a>
+                  <a href="#" class="btn btn-primary">My Grades</a>
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                        <span class="pull-right">
+                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                        </span>
+                    </div>
+            
+          </div>
         </div>
     </section>

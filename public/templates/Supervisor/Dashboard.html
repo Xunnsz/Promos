@@ -18,12 +18,12 @@
 						<th>Course</th>
 						<th>Subject</th>
 						<th>Progress</th>
-						<th>Phone</th>
+						<th></th>
 					</thead>
 					<tbody>
 
 						<div ng-controller="SupervisorDashboardCtrl">
-							<tr ng-repeat="student in students" ng-click="showTimeline($index)">
+							<tr ng-repeat="student in students" ng-click="showStudent($index)">
 								<td>{{$index+1}}</td>
 								<td >{{student.surname}}</td>
 								<td>{{student.lastname}}</td>
@@ -34,7 +34,7 @@
 									<div id="myProgressbar" class="progress">
           				<div class="progress-bar" role="progressbar" aria-valuenow="{{student.progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{student.progress}}%;">									
 								</td>
-								<td><a href="tel:{{student.phonenumber}}"><span class="glyphicon glyphicon-earphone"></span></a></td>
+								<td>{{student.progress}}%</td>
 							</tr>
 						</div>
 

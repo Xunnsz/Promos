@@ -311,6 +311,7 @@ promosControllers.controller('StudentMessagesCtrl', ['$scope', '$http', '$locati
 
 promosControllers.controller('StudentDissertationsCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {
+		$('.textarea').wysihtml5();
 	}]);
 
 promosControllers.controller('StudentAgendaCtrl', ['$scope', '$http', '$location',

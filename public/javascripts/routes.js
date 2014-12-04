@@ -29,7 +29,7 @@ promos.config(['$routeProvider',
 				templateUrl: 'templates/Supervisor/Dashboard.html',
 				controller: 'SupervisorDashboardCtrl'
 			}).
-			when('/Supervisor/Students', {
+			when('/Supervisor/Student/:studentID', {
 				templateUrl: 'templates/Supervisor/Students.html',
 				controller: 'SupervisorStudentsCtrl'
 			}).
@@ -45,9 +45,9 @@ promos.config(['$routeProvider',
 				templateUrl: 'templates/Supervisor/Messages.html',
 				controller: 'SupervisorMessagesCtrl'
 			}).
-			when('/Supervisor/Dissertations', {
-				templateUrl: 'templates/Supervisor/Dissertations.html',
-				controller: 'SupervisorDissertationsCtrl'
+			when('/Supervisor/Appendix', {
+				templateUrl: 'templates/Supervisor/Appendix.html',
+				controller: 'SupervisorAppendixCtrl'
 			}).
 			when('/Logout', {
 				templateUrl: 'templates/Login.html',
